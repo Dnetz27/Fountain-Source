@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fountain Source — Engineering and Design</title>
+<meta name="description" content="Fountain Source is a consulting firm, with over 30 years of experience, that specializes in designing and engineering fountains, water features, swimming pools and spas for public, private and commercial environments.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,500&family=Archivo:wght@600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#060606;
+    --panel:#0D0E0E;
+    --white:#F4F4F1;
+    --dim:#9AA1A3;
+    --blue-deep:#2E4F8C;
+    --blue:#548FBE;
+    --blue-light:#9AD0E4;
+    --line:rgba(244,244,241,.14);
+    --serif:'Fraunces', serif;
+    --heading:'Archivo', sans-serif;
+    --body:'Inter', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--black); color:var(--white); font-family:var(--body); line-height:1.6; -webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+
+  header{position:sticky; top:0; z-index:10; background:rgba(6,6,6,.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
+  nav.wrap{display:flex; align-items:center; justify-content:space-between; height:78px;}
+  nav img{height:30px; width:auto;}
+  nav .links{display:flex; gap:30px; font-family:var(--heading); font-weight:600; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase;}
+  nav .links a{text-decoration:none; border-bottom:1px solid transparent; padding-bottom:3px; transition:border-color .15s, color .15s;}
+  nav .links a:hover, nav .links a:focus-visible{border-color:var(--blue-light); color:var(--blue-light);}
+
+  .hero{padding:120px 0 100px; background:radial-gradient(ellipse at 20% 0%, rgba(46,79,140,.28), transparent 55%);}
+  .hero img.mark{height:64px; width:auto; margin-bottom:44px;}
+  .hero h1{font-family:var(--heading); font-weight:800; font-size:clamp(2.4rem,5.4vw,4.4rem); line-height:1.04; letter-spacing:-.01em; max-width:16ch; margin-bottom:30px;}
+  .hero p{font-size:1.15rem; color:var(--dim); max-width:58ch; border-left:2px solid var(--blue); padding-left:22px;}
+
+  section{padding:88px 0;}
+  section + section{border-top:1px solid var(--line);}
+  h2{font-family:var(--heading); font-weight:800; font-size:clamp(1.7rem,3.2vw,2.3rem); letter-spacing:.01em; margin-bottom:20px;}
+
+  .quote{font-family:var(--serif); font-style:italic; font-size:clamp(1.3rem,2.4vw,1.7rem); line-height:1.5; color:var(--blue-light); max-width:34ch; margin:36px 0;}
+  .about-body{max-width:66ch; color:var(--dim); font-size:1.02rem;}
+  .services{display:grid; grid-template-columns:1fr 1fr; gap:56px; margin-top:52px;}
+  .services h3{font-family:var(--heading); font-weight:700; font-size:.85rem; letter-spacing:.08em; text-transform:uppercase; color:var(--blue-light); margin-bottom:18px;}
+  .services ul{list-style:none;}
+  .services li{padding:11px 0; border-top:1px solid var(--line); font-size:.98rem; color:var(--white);}
+  .services li:last-child{border-bottom:1px solid var(--line);}
+
+  #design-wall p.intro{max-width:66ch; color:var(--dim); font-size:1.02rem; margin-bottom:40px;}
+  .wall-strip{margin-bottom:6px;}
+  .wall-strip img{width:100%; height:auto;}
+
+  footer{background:var(--panel); padding:80px 0 44px;}
+  footer .wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:60px;}
+  footer h2{margin-bottom:28px;}
+  .cta-mail{font-family:var(--serif); font-style:italic; font-size:clamp(1.5rem,3.4vw,2.1rem); text-decoration:none; border-bottom:2px solid var(--blue); display:inline-block; width:fit-content; color:var(--white);}
+  .contact-cols{display:grid; grid-template-columns:1fr 1fr; gap:36px;}
+  .contact-cols h3{font-family:var(--heading); font-weight:700; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--blue-light); margin-bottom:10px;}
+  .contact-cols p{color:var(--dim); font-size:.95rem; margin-bottom:4px;}
+  .contact-cols a{color:var(--white); text-decoration:none; border-bottom:1px solid var(--line);}
+  .contact-cols a:hover{color:var(--blue-light); border-color:var(--blue-light);}
+  .foot-meta{max-width:1180px; margin:60px auto 0; padding:24px 32px 0; border-top:1px solid var(--line); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:.82rem; color:var(--dim);}
+
+  @media (max-width:720px){
+    nav .links{gap:16px; font-size:.68rem;}
+    .services{grid-template-columns:1fr; gap:36px;}
+    footer .wrap{grid-template-columns:1fr;}
+    .contact-cols{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#top"><img src="assets/logo.png" alt="Fountain Source — Engineering and Design"></a>
+    <span class="links">
+      <a href="#top">Welcome</a>
+      <a href="#design-wall">Design Wall</a>
+      <a href="#design-wall">Featured Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </span>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <img class="mark" src="assets/logo.png" alt="">
+    <h1>Water, engineered.</h1>
+    <p>Fountain Source is a consulting firm, with over 30 years of experience, that specializes in designing and engineering fountains, water features, swimming pools and spas for public, private and commercial environments.</p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <h2>Mission</h2>
+    <p class="quote">"Our success is measured in having our clientele re-consider us for future endeavor."</p>
+    <p class="about-body">In keeping true with this statement, we continually strive to develop and evolve the services we provide our clients. To accomplish this, we have established, and refined, a culture based on three core values: integrity, quality and respect.</p>
+
+    <div class="services">
+      <div>
+        <h3>Consulting services</h3>
+        <ul>
+          <li>Mechanical engineering</li>
+          <li>Electrical and controls engineering</li>
+          <li>Concept design and feasibility</li>
+          <li>Structural design</li>
+          <li>Building Information Modeling (BIM)</li>
+          <li>Peer review</li>
+          <li>Order of magnitude cost estimating</li>
+          <li>Project management</li>
+          <li>Bid analysis and negotiation</li>
+          <li>Construction administration and oversight</li>
+          <li>Start-up and commissioning</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Document services</h3>
+        <ul>
+          <li>Complete detailed design, engineered and specified construction drawing packages</li>
+          <li>Concept design and study packages</li>
+          <li>Resource allocation studies</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="design-wall">
+  <div class="wrap">
+    <h2>Design Wall</h2>
+    <p class="intro">Design Wall is a collage of our work that demonstrates the potential and possibilities for water in design, and is intended to serve as a source for reference and inspiration. It will continue to grow and be populated with each new design and project completed.</p>
+  </div>
+  <div class="wall-strip"><img src="assets/wall-1.jpg" alt="Fountain Source design wall — selected water feature and fountain projects"></div>
+  <div class="wall-strip"><img src="assets/wall-2.jpg" alt="Fountain Source design wall — commercial and public water feature projects"></div>
+  <div class="wall-strip"><img src="assets/wall-3.jpg" alt="Fountain Source design wall — additional fountain, pool, and water feature projects"></div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div>
+      <h2>Contact</h2>
+      <a class="cta-mail" href="mailto:info@fountain-source.com">info@fountain-source.com</a>
+    </div>
+    <div class="contact-cols">
+      <div>
+        <h3>Office</h3>
+        <p>Fountain Source</p>
+        <p>122 W Sierra Madre Blvd., Suite C</p>
+        <p>Sierra Madre, CA 91024</p>
+        <p style="margin-top:10px;"><a href="tel:+16263551531">+626-355-1531</a></p>
+      </div>
+      <div>
+        <h3>General inquiries</h3>
+        <p><a href="mailto:info@fountain-source.com">info@fountain-source.com</a></p>
+        <h3 style="margin-top:22px;">Job opportunities</h3>
+        <p><a href="mailto:jobs@fountain-source.com">jobs@fountain-source.com</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="foot-meta">
+    <span>© 2026 Fountain Source</span>
+    <span>Sierra Madre, CA</span>
+  </div>
+</footer>
+
+</body>
+</html>
